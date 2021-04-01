@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>browseAndEdit</title>
+    <link rel="stylesheet" href="../css/browse.css">
+</head>
+
+<body>
+    <div class="top-title">
+        <div class="button" id="importFromWordBtn">长文本导入</div>
+        <div class="button" id="importFromPptxBtn">pptx导入</div>
+        <div class="button" id="importBtn">json导入</div>
+        <div class="button" id="insertBtn">手动插入</div>
+        <div class="button" id="refreshBtn">刷新</div>
+        <div class="button" id="multiselect">多选</div>
+        <div class="button" id="saveBtn">保存</div>
+    </div>
+    <div class='blank'></div>
+    <div class="horizontal-line"></div>
+    <!-- <div class='insert-block' id='insert-block' contenteditable="true">
+    </div> -->
+    <textarea class='insert-block' id='insert-block' placeholder="">
+    </textarea>
+    <div class='insert-ok' id='insert-ok'>完成（至少输入两行，以换行符为分隔符，从上到下依次为 题干 选项[无需ABC标识] 答案）</div>
+    <div class='insert-ok' id='load-ok'>长文本导入<span id='have-processed'></span></div>
+    <div class="content" id="content"></div>
+    <div class='menu' id='context-menu'>
+        <ul>
+            <li id='menu-edit'>编辑</li>
+            <li id='menu-delete'>删除</li>
+        </ul>
+    </div>
+    <script src="../js/browseAndEdit.js"></script>
+</body>
+
+</html>

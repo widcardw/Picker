@@ -1,0 +1,118 @@
+.top-title {
+    background-color: white;
+    z-index: 301;
+    box-shadow: 0px 0px 5px lightcoral;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    position: fixed;
+    justify-content: flex-start;
+}
+.blank {
+    height: 60px;
+}
+.button {
+    min-width: 80px;
+    text-align: center;
+    user-select: none;
+    margin-left: 10px;
+    padding: 0.4em 0.8em;
+    background-color: moccasin;
+    box-shadow: 0px 0px 5px lightsalmon;
+    transition: ease 300ms;
+}
+.button:hover {
+    background-color: lightsalmon;
+    box-shadow: 0px 0px 5px lightcoral;
+    transition: ease 300ms;
+}
+.horizontal-line {
+    position: relative;
+    width:100%;
+    height:1px;
+    background-color: moccasin;
+    box-shadow: 0px 0px 1px lightsalmon;
+}
+.content {
+    position: relative;
+}
+.one-obj {
+    box-shadow: 0px 0px 6px lightsalmon;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.insert-block {
+    resize: vertical;
+    width:95%;
+    display: none;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px lightcoral;
+    padding: 20px;
+    margin-top: 10px;
+}
+.insert-ok {
+    display: none;
+    right: 5px;
+    bottom: 5px;
+    min-width: 80px;
+    text-align: center;
+    user-select: none;
+    padding: 0.4em 0.8em;
+    border-radius: 5px;
+    background-color: moccasin;
+    box-shadow: 0px 0px 5px lightsalmon;
+    cursor: pointer;
+}
+.foot .button {
+    display: block;
+    margin: auto;
+    padding: 0.8em;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    box-shadow: 0px 0px 5px lightsalmon;
+}
+.foot .button:hover {
+    background-color: lightsalmon;
+    box-shadow: 0px 0px 5px lightcoral;
+}
+.menu {
+    width : 100px;
+	padding : 2px;
+	visibility : hidden;
+	position : absolute;
+    top: 0;
+    left: 0;
+}
+
+ul { list-style-type:none; }
+ 
+#context-menu ul { 
+    position:absolute; 
+    float:left; 
+    border:1px solid #979797;
+    background:#f1f1f1;
+    padding:2px; 
+    box-shadow:2px 2px 2px rgba(0, 0, 0, .6); 
+    width:100px; 
+    overflow:hidden; 
+}
+
+#context-menu ul li { 
+    float:left; 
+    clear:both; 
+    height:24px; 
+    cursor:pointer; 
+    line-height:24px; 
+    white-space:nowrap; 
+    padding:0 30px; 
+    width:100%; 
+    display:inline-block; 
+}
+
+#context-menu ul li:hover { 
+    background:#E6EDF6; 
+    border:1px solid #B4D2F6; 
+}

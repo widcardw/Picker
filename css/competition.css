@@ -1,0 +1,67 @@
+.lbox {
+  float: left;
+  padding: 3%;
+  width: 65%;
+}
+.lubox {
+  width: 100%;
+  transition: ease;
+  padding: 2%;
+  box-shadow: 0px 0px 5px lightsalmon;
+  float: left;
+  font-size: 3vw;
+  background-color: moccasin;
+}
+.rbox {
+  width: 25%;
+  transition: ease;
+  padding: 2%;
+  float: left;
+  /* background-color: lightcyan; */
+}
+.rubox {
+  width:100%;
+  box-shadow: 0px 0px 5px lightsalmon;
+  padding: 2%;
+  text-align: center;
+  font-size: 3vw;
+  background-color: papayawhip;
+  -webkit-user-select: none;
+  /* transition: ease 100ms; */
+}
+.rubox:hover {
+  background-color: moccasin;
+  /* transition: ease 100ms; */
+}
+.rubox:active {
+  background-color: lightsalmon;
+  /* transition: ease 100ms; */
+}
+.rmbox {
+  width:100%;
+  position: relative;
+  box-shadow: 0px 0px 5px lightsalmon;
+  padding: 2%;
+  text-align: center;
+  background-color: papayawhip;
+  -webkit-user-select: none;
+  font-size: large;
+}
+.rdbox {
+  width:100%;
+  box-shadow: 0px 0px 5px lightsalmon;
+  padding: 2%;
+  text-align: center;
+  font-size: 3vw;
+  -webkit-user-select: none;
+  background-color: papayawhip;
+  /* transition: ease 100ms; */
+}
+.rdbox:hover {
+  background-color: moccasin;
+  /* transition: ease 100ms; */
+}
+.rdbox:active {
+  background-color: lightsalmon;
+  /* transition: ease 100ms; */
+}

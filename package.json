@@ -1,0 +1,20 @@
+{
+  "name": "bk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.5"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.4",
+    "jquery": "^3.6.0",
+    "mammoth": "^1.4.16"
+  }
+}

@@ -35,6 +35,16 @@ fs.open("./data/", (err, fd) => {
       throw err7;
     })
   })
+  fs.open('./data/css', (err5, fd3) => {
+    if (err5 && err5.code == 'ENOENT') {
+      fs.mkdir('data/css', (err6) => {
+        if (err6) throw err6;
+      })
+    }
+    fs.close(fd3, err7 => {
+      throw err7;
+    })
+  })
   fs.close(fd, (err1) => {
     throw err1;
   });

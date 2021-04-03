@@ -67,7 +67,7 @@ window.onload = function() {
         hasnt_been_picked_path.value = tobe_picked_path;
     })
 
-    fs.readFile('./css/mainfont.css', function(err, dat) {
+    fs.readFile('./data/css/mainfont.css', function(err, dat) {
         if (err) {
             console.log(err);
         }
@@ -79,7 +79,7 @@ window.onload = function() {
         }
     })
 
-    fs.readFile('./css/fontweight.css', function(err, dat) {
+    fs.readFile('./data/css/fontweight.css', function(err, dat) {
         if (err) {
             console.log(err)
         }
@@ -119,7 +119,7 @@ const confirm_font = document.querySelector("#confirm-font")
 confirm_font.addEventListener('click', () => {
     let fonts = set_font_family.value;
     let css = 'body \{ font-family: ' + fonts + ';\}';
-    fs.writeFileSync('./css/mainfont.css', css);
+    fs.writeFileSync('./data/css/mainfont.css', css);
 })
 
 const set_font_weight = document.querySelector('#set-font-weight');
@@ -127,5 +127,5 @@ const set_font_weight = document.querySelector('#set-font-weight');
 set_font_weight.addEventListener('change', () => {
     let font_weight = set_font_weight.value;
     let css = 'body \{ font-weight: ' + font_weight + ';\}';
-    fs.writeFileSync('./css/fontweight.css', css);
+    fs.writeFileSync('./data/css/fontweight.css', css);
 })

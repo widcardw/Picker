@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "adm-zip": "^0.5.4",
-    "jquery": "^3.6.0",
-    "mammoth": "^1.4.16"
+    "jquery": "^3.6.0"
   }
 }

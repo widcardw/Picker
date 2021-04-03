@@ -10,4 +10,4 @@ npm install --save_dev
 npm run start
 ```
 
-2021/4/1 尚未完工
+2021/4/3 初步完工

@@ -3,6 +3,7 @@ const fs = require("fs");
 const { ipcRenderer } = require("electron");
 const { ipcRenderer: ipc } = require("electron");
 const { setTimeout } = require("timers");
+const { globalShortcut } = require('electron').remote;
 // 下面的东西这里有没有无所谓,因为不涉及到ipcRender发送消息
 // const { electron, remote, webview } = require("electron");
 
@@ -56,7 +57,7 @@ wb.addEventListener("did-start-loading", () => {
   wb.style.opacity = 0;
 });
 wb.addEventListener("dom-ready", () => {
-  wb.openDevTools();
+  // wb.openDevTools();
   console.log("dom-ready");
   setTimeout(() => {
     wb.style.opacity = 1;
@@ -93,3 +94,7 @@ btnZoom.onclick = () => {
 btnClose.onclick = () => {
   ipc.send("close");
 };
+
+globalShortcut.register('CommandOrControl+L', () => {
+  wb.openDevTools();
+})

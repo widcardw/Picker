@@ -141,6 +141,8 @@ var btnLoadOK = document.querySelector("#load-ok")
 btnInsert.isOpen = false;
 btnWord.isOpen = false;
 var btnRefresh = document.querySelector("#refreshBtn");
+var btnPptxConfirm = document.querySelector("#pptx-ok");
+btnPptx.isOpen = false;
 
 btnJson.addEventListener('click', () => {
     dialog.showOpenDialog({
@@ -149,6 +151,9 @@ btnJson.addEventListener('click', () => {
             { name: 'Json File', extensions: ['json'] }
         ]
     }).then(result => {
+        if (result.canceled) {
+            return;
+        }
         // console.log(result.filePaths)
         getJsonData(result.filePaths, refreshHtmlElement);
     })
@@ -205,7 +210,18 @@ btnInsertOK.addEventListener('click', () => {
     btnInsertOK.style.display = 'none';
 });
 
+var xmls;
+
 btnPptx.addEventListener('click', () => {
+    if (btnWord.isOpen) {
+        btnWord.click();
+    }
+    if (btnInsert.isOpen) {
+        btnInsert.click();
+    }
+    btnWord.style.display = 'none';
+    btnInsert.style.display = 'none';
+    btnJson.style.display = 'none';
     dialog.showOpenDialog({
         properties: ['openFile'],
         filters: [
@@ -218,32 +234,29 @@ btnPptx.addEventListener('click', () => {
         const pth = result.filePaths[0];
         const zip = new admZip(pth);
         zip.extractAllTo(pth.slice(0, pth.length - 5));
-        let xmls = findSync(pth.slice(0, pth.length - 5) + '/ppt/slides');
+        xmls = findSync(pth.slice(0, pth.length - 5) + '/ppt/slides');
         // console.log(xmls);
-        readFromPPTXmls(xmls);
-        // console.log(jsonData);
-        // for (let i = 0; i < xmls.length; i++) {
-        //     fs.readFile(xmls[i], (err, dat) => {
-        //         if (err) {
-        //             throw err;
-        //         }
-        //         else {
-        //             dat = dat.toString();
-        //             let matchWT = dat.match(/(<a:t>.*?<\/a:t>)|(<a:t\s.[^>]*?>.*?<\/a:t>)/g);
-        //             matchWT = filter(matchWT);  // 一张ppt的文本内容, 即一道题目
-        //             let obj = createOneExercise(matchWT);
-        //             jsonData.push(obj);
-        //             // console.log(jsonData)
-        //         }
-        //     })
-        // }
-        // TODO 这里是异步的, 会在读取之前进行操作
-        // console.log(jsonData);
-        // refreshHtmlElement(jsonData);
+        // TODO 添加关健词屏蔽
+        // readFromPPTXmls(xmls);
+        blockInsert.value = '';
+        blockInsert.style.display = "block";
+        btnPptxConfirm.style.display = 'block';
+        blockInsert.placeholder = "输入要屏蔽的关键句\n用换行隔开";
     })
 })
 
-function readFromPPTXmls(xmls) {
+btnPptxConfirm.addEventListener('click', () => {
+    let string_blocked = jQuery.trim(jQuery(blockInsert).val()).split('\n')
+    readFromPPTXmls(xmls, string_blocked)
+    blockInsert.placeholder = '';
+    blockInsert.style.display = 'none';
+    btnPptxConfirm.style.display = 'none';
+    btnWord.style.display = 'block';
+    btnInsert.style.display = 'block';
+    btnJson.style.display = 'block';
+})
+
+function readFromPPTXmls(xmls, string_blocked) {
     let count = 0;
     for (let i = 0; i < xmls.length; i++) {
         fs.readFile(xmls[i], (err, dat) => {
@@ -254,7 +267,7 @@ function readFromPPTXmls(xmls) {
                 dat = dat.toString();
                 let matchWT = dat.match(/(<a:t>.*?<\/a:t>)|(<a:t\s.[^>]*?>.*?<\/a:t>)/g);
                 matchWT = filter(matchWT);  // 一张ppt的文本内容, 即一道题目
-                let obj = createOneExercise(matchWT);
+                let obj = createOneExercise(matchWT, string_blocked);
                 jsonData.push(obj);
                 count++;
                 // console.log(jsonData)
@@ -266,7 +279,12 @@ function readFromPPTXmls(xmls) {
     }
 }
 
-function createOneExercise(arr) {
+function createOneExercise(arr, string_blocked) {
+    jQuery.each(arr, (index, value) => {
+        if (string_blocked.indexOf(value) !== -1) {
+            arr.splice(index, 1);
+        }
+    })
     let obj = { 'content': arr[0] };
     let i;
     for (i = 1; i < arr.length - 1; i++) {
@@ -371,4 +389,10 @@ btnLoadOK.addEventListener('click', () => {
 
 btnRefresh.addEventListener('click', () => {
     refreshHtmlElement(jsonData);
+})
+
+const btnClearAll = document.querySelector("#clearAllBtn");
+btnClearAll.addEventListener('click', () => {
+    jsonData = [];
+    btnRefresh.click();
 })

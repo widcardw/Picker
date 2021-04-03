@@ -1,3 +1,6 @@
+/* body{
+  font-family: Source Han Serif SC SemiBold;
+} */
 .lbox {
   float: left;
   padding: 3%;
@@ -5,11 +8,12 @@
 }
 .lubox {
   width: 100%;
+  justify-content: flex-start;
   transition: ease;
   padding: 2%;
   box-shadow: 0px 0px 5px lightsalmon;
   float: left;
-  font-size: 3vw;
+  font-size: 2em;
   background-color: moccasin;
 }
 .rbox {
@@ -27,6 +31,7 @@
   font-size: 3vw;
   background-color: papayawhip;
   -webkit-user-select: none;
+  user-select: none;
   /* transition: ease 100ms; */
 }
 .rubox:hover {
@@ -45,6 +50,7 @@
   text-align: center;
   background-color: papayawhip;
   -webkit-user-select: none;
+  user-select: none;
   font-size: large;
 }
 .rdbox {
@@ -54,6 +60,7 @@
   text-align: center;
   font-size: 3vw;
   -webkit-user-select: none;
+  user-select: none;
   background-color: papayawhip;
   /* transition: ease 100ms; */
 }
@@ -64,4 +71,38 @@
 .rdbox:active {
   background-color: lightsalmon;
   /* transition: ease 100ms; */
+}
+.answer {
+  width: 100%;
+  text-align: center;
+  display: none;
+  user-select: none;
+  font-size: 10vw;
+}
+/* .content {
+  font-size: 48px;
+} */
+#current-base-introduction {
+  /* left:0px; */
+  /* width: fit-content; */
+  float:left;
+}
+.change-font-size {
+  /* background-color: aquamarine; */
+  width: 30px;
+  height: 30px;
+  float:right;
+  /* right: 0px;
+  bottom: 0px; */
+  font-size: 0.8em;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  color:lightsalmon;
+  user-select: none;
+}
+.change-font-size:hover {
+  color:rgb(255, 116, 65);
+}
+.change-font-size:active {
+  color:crimson;
 }

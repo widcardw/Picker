@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const jQuery = require('jquery');
 const { dialog } = require('electron').remote;
+const { title } = require('process');
 
 var base_path = document.querySelector('#base-path');
 var browse_base_btn = document.querySelector('#browse-base');
@@ -25,11 +26,17 @@ browse_base_btn.addEventListener('click', () => {
         fs.writeFileSync('./data/settings/current_base.json', result.filePaths[0]);
         let tobe_picked_path = global_base_path.slice(0, global_base_path.lastIndexOf('.')) +'_tobepicked.json';
         hasnt_been_picked_path.value = tobe_picked_path;
-    });
+    }).catch(err => {
+        throw err;
+    })
 });
 
 clear_hasnt_been_picked_btn.addEventListener('click', () => {
-    resetToBePicked()
+    resetToBePicked();
+    dialog.showMessageBox({
+        title: "提示",
+        message: "题库已重置"
+    })
 });
 
 window.onload = function() {
@@ -120,6 +127,15 @@ confirm_font.addEventListener('click', () => {
     let fonts = set_font_family.value;
     let css = 'body \{ font-family: ' + fonts + ';\}';
     fs.writeFileSync('./data/css/mainfont.css', css);
+    // let option = {
+    //     "title": "提示",
+    //     "body": "字体已重置"
+    // }
+    // new window.Notification(option.title, option);
+    dialog.showMessageBox({
+        title: "信息",
+        message: "字体已重置"
+    })
 })
 
 const set_font_weight = document.querySelector('#set-font-weight');

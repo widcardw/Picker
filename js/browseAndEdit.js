@@ -156,6 +156,8 @@ btnJson.addEventListener('click', () => {
         }
         // console.log(result.filePaths)
         getJsonData(result.filePaths, refreshHtmlElement);
+    }).catch(err => {
+        throw err;
     })
 });
 
@@ -166,6 +168,8 @@ btnSave.addEventListener('click', () => {
     }).then(result => {
         // console.log(result.filePath);
         fs.writeFileSync(result.filePath, JSON.stringify(jsonData));
+    }).catch(err => {
+        throw err;
     })
 });
 
@@ -242,6 +246,8 @@ btnPptx.addEventListener('click', () => {
         blockInsert.style.display = "block";
         btnPptxConfirm.style.display = 'block';
         blockInsert.placeholder = "输入要屏蔽的关键句\n用换行隔开";
+    }).catch(err => {
+        throw err;
     })
 })
 

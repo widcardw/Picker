@@ -55,6 +55,9 @@ window.onload = function() {
 
 //抽取按钮响应
 rubox.onclick = () => {
+  if (tobe_picked_arr == undefined) {
+    return;
+  }
   // console.log("rubox click");
   if (tobe_picked_arr.length <= 0) {
     answer.innerHTML = '';

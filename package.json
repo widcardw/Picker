@@ -1,19 +1,60 @@
 {
-  "name": "bk",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "name": "pickerdb",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "electron ."
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "electron": "^10.1.5"
-  },
+  "main": "background.js",
   "dependencies": {
-    "adm-zip": "^0.5.4",
-    "jquery": "^3.6.0"
-  }
+    "core-js": "^3.6.5",
+    "electron-store": "^6.0.1",
+    "github-markdown-css": "^4.0.0",
+    "markdown": "^0.5.0",
+    "markdown-it": "^12.1.0",
+    "mongodb": "^4.1.0",
+    "mongoose": "^5.13.7",
+    "path": "^0.12.7",
+    "vue": "^2.6.11",
+    "vue-router": "^3.5.1",
+    "xterm": "^4.12.0",
+    "xterm-addon-web-links": "^0.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "electron": "^11.0.0",
+    "electron-devtools-installer": "^3.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-cli-plugin-electron-builder": "~2.0.0-rc.6",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }

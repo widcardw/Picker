@@ -1,0 +1,58 @@
+[
+    {
+        "ex_content": "你叫什么名字",
+        "ex_choices": {
+            "A": "吴克",
+            "B": "葛平",
+            "C": "葛炮"
+        },
+        "ex_answer": "A"
+    },
+    {
+        "ex_content": "你今年多大了",
+        "ex_choices": {
+            "A": "6",
+            "B": "5",
+            "C": "9",
+            "D": "8"
+        },
+        "ex_answer": "B"
+    },
+    {
+        "ex_content": "你将来要干什么",
+        "ex_choices": {
+            "A": "程序员",
+            "B": "理发师",
+            "C": "配音演员"
+        },
+        "ex_answer": "C"
+    },
+    {
+        "ex_content": "bbbb",
+        "ex_choices": {
+            "A": "xxx",
+            "B": "yyy",
+            "C": "zzz",
+            "D": "www"
+        },
+        "ex_answer": "B"
+    },
+    {
+        "ex_content": "What's your name?",
+        "ex_choices": {
+            "A": "Tim",
+            "B": "Tom",
+            "C": "Jim"
+        },
+        "ex_answer": "A"
+    },
+    {
+        "ex_content": "欲穷千里目",
+        "ex_choices": {
+            "A": "自挂东南枝",
+            "B": "更上一层楼",
+            "C": "谁知盘中餐"
+        },
+        "ex_answer": "B"
+    }
+]

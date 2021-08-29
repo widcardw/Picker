@@ -106,3 +106,17 @@ if (isDevelopment) {
     })
   }
 }
+
+// import mongoose from 'mongoose'
+
+// let url = "mongodb://localhost:27017/test";
+
+// mongoose.connect(url, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useFindAndModify: false,
+//   useCreateIndex: true
+// });
+// mongoose.connection.once("open", function () {
+//   console.log("Successfully connected!")
+// })
